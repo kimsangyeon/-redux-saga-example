@@ -5,18 +5,18 @@ const Picker = ({
   onChange,
   options,
 }) => {
-  const onChange = useCallback(e => {
+  const onSelectChange = useCallback(e => {
     onChange(e.target.value);
   }, [onChange]);
   return (
     <span>
       <h1>{value}</h1>
-      <select onChange={onChange} value={value}>
-        {options.map(option => {
+      <select onChange={onSelectChange} value={value}>
+        {options.map(option => (
           <option value={option} key={option}>
             {option}
           </option>
-        })}
+        ))}
       </select>
     </span>
   );

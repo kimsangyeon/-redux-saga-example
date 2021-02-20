@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectReddit, invalidateReddit } from '../actions';
+import * as actions from '../actions';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
@@ -12,12 +12,12 @@ const App = ({
   dispatch,
 }) => {
   const handleChange = (nextReddit) => {
-    dispatch(selectedReddit(nextReddit));
+    dispatch(actions.selectReddit(nextReddit));
   };
 
   const handleRefreshClick = e => {
     e.preventDefault();
-    dispatch(invalidateReddit(selectReddit));
+    dispatch(actions.invalidateReddit(selectedReddit));
   };
 
   return (
@@ -38,19 +38,19 @@ const App = ({
               Refresh
             </a>
         }
-        {
-          isFetching && posts.length === 0 && <h2>Loading...</h2>
-        }
-        {
-          !isFetching && posts.length === 0 && <h2>Empty.</h2>
-        }
-        {
-          posts.length > 0 &&
-          <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Posts posts={posts} />
-          </div>
-        }
       </p>
+      {
+        isFetching && posts.length === 0 && <h2>Loading...</h2>
+      }
+      {
+        !isFetching && posts.length === 0 && <h2>Empty.</h2>
+      }
+      {
+        posts.length > 0 &&
+        <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+          <Posts posts={posts} />
+        </div>
+      }
     </div>
   );
 };
