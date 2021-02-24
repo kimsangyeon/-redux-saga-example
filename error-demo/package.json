@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.12.16",
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
+    "babel-plugin-redux-saga": "^1.1.2",
     "cross-env": "^7.0.3",
     "html-webpack-plugin": "^4.0.0",
     "react": "^17.0.1",
