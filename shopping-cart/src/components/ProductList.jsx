@@ -22,6 +22,6 @@ const ProductList = ({
 );
 
 export default connect(
-  state= ({ products: getVisibleProducts(state.products) }),
+  state => ({ products: getVisibleProducts(state.products) }),
   { addToCart },
 )(ProductList);

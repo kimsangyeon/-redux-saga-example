@@ -34,7 +34,7 @@ const Cart = ({
       <h3>Your Cart</h3>
       <div>{nodes}</div>
       <p>Totla: &#36;{total}</p>
-      <button onClick={checkout} disabled={checkoutAllowed ? '' : disabled}>
+      <button onClick={checkout} disabled={checkoutAllowed ? '' : 'disabled'}>
         Checkout
       </button>
       <div style={{ color: 'red' }}>{error}</div>
@@ -46,7 +46,7 @@ const Cart = ({
 export default connect(
   state => ({
     products: getCartProducts(state),
-    totla: getTotal(state),
+    total: getTotal(state),
     error: getCheckoutError(state),
     checkoutPending: isCheckoutPending(state),
   }),

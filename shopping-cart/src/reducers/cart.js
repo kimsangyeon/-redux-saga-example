@@ -3,7 +3,6 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CHECKOUT_SUCCESS,
-  CHECKOUT_SUCCESS,
   CHECKOUT_FAILURE,
   CHECKOUT_REQUEST,
 } from '../actions';
@@ -46,7 +45,7 @@ function quantityById(state = initialState.quantityById, action) {
         [productId]: (state[productId] || 0) + 1,
       };
     case REMOVE_FROM_CART:
-      const qty = (state[productId] || 0) - 1,
+      const qty = (state[productId] || 0) - 1;
       const copy = { ...state };
       if (qty > 0) copy[productId] = qty;
       else delete copy[productId];
